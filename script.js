@@ -21,16 +21,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const questionsDiv = document.getElementById("questions");
     questions.forEach((q, index) => {
         const questionBlock = document.createElement("div");
+        questionBlock.classList.add("question");
         questionBlock.innerHTML = `<p>${index + 1}. ${q}</p>`;
         
         ["Strongly Agree", "Agree", "Disagree", "Strongly Disagree"].forEach((text, score) => {
+            const label = document.createElement("label");
+            label.style.display = "block";
+            
             const radioBtn = document.createElement("input");
             radioBtn.type = "radio";
             radioBtn.name = `q${index}`;
-            radioBtn.value = score + 1; // Assign scores 1 to 4
-            questionBlock.appendChild(radioBtn);
-            questionBlock.appendChild(document.createTextNode(` ${text}`));
-            questionBlock.appendChild(document.createElement("br"));
+            radioBtn.value = score + 1;
+            
+            label.appendChild(radioBtn);
+            label.appendChild(document.createTextNode(` ${text}`));
+            questionBlock.appendChild(label);
         });
         
         questionsDiv.appendChild(questionBlock);
@@ -39,21 +44,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function calculateScore() {
     let score = 0;
-    const questions = document.querySelectorAll("#questions div");
     let answeredAll = true;
+    const questions = document.querySelectorAll(".question");
     
     questions.forEach((question) => {
         const selected = question.querySelector("input:checked");
         if (selected) {
-            score += parseInt(selected.value); // Sum up scores
+            score += parseInt(selected.value);
         } else {
             answeredAll = false;
         }
     });
     
+    const result = document.getElementById("result");
     if (!answeredAll) {
-        document.getElementById("result").textContent = "Please answer all questions before submitting.";
+        result.textContent = "Please answer all questions before submitting.";
+        result.style.color = "red";
     } else {
-        document.getElementById("result").textContent = `Your Score: ${score}. ${score >= 30 ? "You meet the threshold." : "You do not meet the threshold."}`;
+        result.textContent = `Your Score: ${score}. ${score >= 30 ? "You meet the threshold." : "You do not meet the threshold."}`;
+        result.style.color = "black";
     }
 }
