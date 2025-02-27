@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Snaith-Hamilton Pleasure Scale (SHAPS)</h1>
+        <p>Assess your ability to experience pleasure. Please answer all questions.</p>
+    </header>
+    <main class="container">
         <form id="shapsForm">
-            <p>Rate each statement on a 4-point Likert scale:</p>
-            <p><strong>0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree</strong></p>
-            
             <div id="questions"></div>
-            
             <button type="button" onclick="calculateScore()">Submit</button>
         </form>
         <p id="result"></p>
-    </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Clinical Research Center | SHAPS Assessment Tool</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
