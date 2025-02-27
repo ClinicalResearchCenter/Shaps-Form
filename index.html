@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAPS Questionnaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Snaith-Hamilton Pleasure Scale (SHAPS)</h1>
+        <form id="shapsForm">
+            <p>Rate each statement on a 4-point Likert scale:</p>
+            <p><strong>0 = Strongly Disagree, 1 = Disagree, 2 = Agree, 3 = Strongly Agree</strong></p>
+            
+            <div id="questions"></div>
+            
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+        <p id="result"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
