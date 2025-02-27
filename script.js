@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultDiv = document.getElementById("result");
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent form submission
 
         let totalScore = 0;
         const questions = document.querySelectorAll("ol li");
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
+        // Display the result
         resultDiv.innerHTML = `<h2>Your SHAPS Score: ${totalScore}</h2>
             <p><strong>Interpretation:</strong></p>
             <ul>
