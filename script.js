@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < questions.length; i++) {
             const selectedOption = questions[i].querySelector("input[type='radio']:checked");
             if (selectedOption) {
-                totalScore += parseInt(selectedOption.value); // Using 0-3 scale
+                totalScore += parseInt(selectedOption.value); // Using flipped 0-3 scale
             } else {
                 alert(`Please answer question ${i + 1}`);
                 return;
